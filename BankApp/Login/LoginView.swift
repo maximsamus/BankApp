@@ -8,16 +8,13 @@
 import UIKit
 
 class LoginView: UIView {
-    
     let usernameTextField = UITextField()
     let passwordTextField = UITextField()
     let stackView = UIStackView()
     let dividerView = UIView()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         style()
         layout()
     }
@@ -25,11 +22,9 @@ class LoginView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 extension LoginView {
-    
     func style() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .secondarySystemBackground
@@ -80,7 +75,6 @@ extension LoginView {
 
 // MARK: - UITextFieldDelegate
 extension LoginView: UITextFieldDelegate {
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         usernameTextField.endEditing(true)
         passwordTextField.endEditing(true)
@@ -88,12 +82,7 @@ extension LoginView: UITextFieldDelegate {
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.text != "" {
-            return true
-        } else {
-            textField.placeholder = "Type something"
-            return false
-        }
+        return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
