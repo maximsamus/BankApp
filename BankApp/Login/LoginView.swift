@@ -33,7 +33,6 @@ extension LoginView {
         stackView.axis = .vertical
         stackView.spacing = 8
         
-        
         usernameTextField.translatesAutoresizingMaskIntoConstraints = false
         usernameTextField.placeholder = "Username"
         usernameTextField.delegate = self
@@ -68,7 +67,6 @@ extension LoginView {
             ),
             bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1)
         ])
-        
         dividerView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
 }

@@ -8,6 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    let appName = UILabel()
     let loginView = LoginView()
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
@@ -27,6 +28,12 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     private func style() {
+        appName.text = "Bank App"
+        appName.translatesAutoresizingMaskIntoConstraints = false
+        appName.textColor = .systemBlue
+        appName.textAlignment = .center
+        appName.font = UIFont(name:"Seravek",size:60)
+        
         loginView.translatesAutoresizingMaskIntoConstraints = false
         
         signInButton.translatesAutoresizingMaskIntoConstraints = false
@@ -43,10 +50,16 @@ extension LoginViewController {
     }
     
     private func layout() {
+        view.addSubview(appName)
         view.addSubview(loginView)
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
         
+        NSLayoutConstraint.activate([
+            appName.bottomAnchor.constraint(equalToSystemSpacingBelow: loginView.topAnchor, multiplier: 0),
+            appName.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: appName.trailingAnchor, multiplier: 1)
+        ])
         NSLayoutConstraint.activate([
             loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
